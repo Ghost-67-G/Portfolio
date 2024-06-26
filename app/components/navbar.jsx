@@ -1,4 +1,5 @@
 // @flow strict
+import { personalData } from "@/utils/data/personal-data";
 import Link from "next/link";
 
 
@@ -9,8 +10,11 @@ function Navbar() {
         <div className="flex flex-shrink-0 items-center">
           <Link
             href="/"
+            style={{
+              textDecoration: "capitalize",
+            }}
             className=" text-[#16f2b3] text-3xl font-bold">
-            ABU SAID
+            {personalData.name}
           </Link>
         </div>
 
