@@ -8,5 +8,5 @@ export const contactsData = {
     linkedIn: 'https://www.linkedin.com/in/ayan-naseer/',
     twitter: 'https://twitter.com/said7388',
     stackOverflow: 'https://stackoverflow.com/users/25735457/ayan-naseer-ghost-67',
-    devUsername: "ghost-67-g",
+    // devUsername: "ghost-67-g",
 }
