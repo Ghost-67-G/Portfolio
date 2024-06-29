@@ -30,7 +30,7 @@ async function getBlogData() {
 const getData = async () => {
   const url = 'https://api.jsonsilo.com/843eeaf1-64b1-49a9-be43-59c545d34bca';
   const headers = {
-    'X-SILO-KEY': process.env['X-SILO-KEY'],
+    'X-SILO-KEY': process.env['NEXT_PUBLIC_X-SILO-KEY'],
     'Content-Type': 'application/json'
   };
   const res = await fetch(url, { headers })
