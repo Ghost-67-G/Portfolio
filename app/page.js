@@ -8,7 +8,7 @@ import HeroSection from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
 
-async function getData() {
+async function getBlogData() {
   if (personalData.devUsername) {
 
     const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
@@ -27,19 +27,31 @@ async function getData() {
   }
 };
 
+const getData = async () => {
+  const url = 'https://api.jsonsilo.com/843eeaf1-64b1-49a9-be43-59c545d34bca';
+  const headers = {
+    'X-SILO-KEY': process.env['X-SILO-KEY'],
+    'Content-Type': 'application/json'
+  };
+  const res = await fetch(url, { headers })
+  const data = await res.json()
+  return data
+}
+
 export default async function Home() {
-  const blogs = await getData();
+  const data = await getData()
+  const blogs = await getBlogData();
 
   return (
     <>
-      <HeroSection />
-      <AboutSection />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Education />
-      {blogs&&
-      <Blog blogs={blogs} />
+      <HeroSection personalData={data?.personal} />
+      <AboutSection personalData={data?.personal} />
+      <Experience experiences={data?.experiences} />
+      <Skills skillsData={data?.skills} />
+      <Projects projectsData={data?.projects} />
+      <Education educations={data?.educations} />
+      {blogs &&
+        <Blog blogs={blogs} />
       }
       <ContactSection />
     </>
