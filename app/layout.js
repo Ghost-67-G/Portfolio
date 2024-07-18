@@ -13,6 +13,23 @@ export const metadata = {
   title: "Portfolio of Ayan Naseer - Mern Stack Developer",
   description:
     "This is the portfolio of Ayan Naseer. I am a full stack developer and a self taught developer. I love to learn new things and I am always open to collaborating with others. I am a quick learner and I am always looking for new challenges.",
+  openGraph: {
+    title: 'Portfolio of Ayan Naseer - Mern Stack Developer',
+    description:
+      "This is the portfolio of Ayan Naseer. I am a full stack developer and a self taught developer. I love to learn new things and I am always open to collaborating with others. I am a quick learner and I am always looking for new challenges.",
+    url: 'https://portfolio-ayan.netlify.app/',
+    siteName: 'Ayan Naseer Portfolio',
+    images: [
+      {
+        url: 'https://portfolio-ayan.netlify.app/_next/image?url=%2Fprofile.jpeg&w=800&h=600&q=75',
+        width: 800,
+        height: 600,
+        alt: 'Profile',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }) {
