@@ -12,11 +12,13 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Portfolio of Ayan Naseer - Mern Stack Developer",
   description:
-    "This is the portfolio of Ayan Naseer. I am a full stack developer and a self taught developer. I love to learn new things and I am always open to collaborating with others. I am a quick learner and I am always looking for new challenges.",
+    "My name is Ayan Naseer. I am a dedicated and enthusiastic MERN Stack Developer with a passion for technology and problem-solving. I thrive on learning and exploring new technologies, driven by a self-motivated attitude and a quick learning ability. My expertise lies in JavaScript, enabling me to build robust and scalable web applications. I am committed to making the web more accessible and open to everyone. Whether it's frontend, backend, or full-stack development, I am eager to contribute to exciting projects that align with my skills and interests. I am available for job opportunities that offer growth and challenge in the field of web development.",
+  keywords: "Ayan Naseer, MERN Stack Developer, JavaScript, React, Node.js, Full-Stack Developer, Web Developer",
+  author: "Ayan Naseer",
   openGraph: {
     title: 'Portfolio of Ayan Naseer - Mern Stack Developer',
     description:
-      "This is the portfolio of Ayan Naseer. I am a full stack developer and a self taught developer. I love to learn new things and I am always open to collaborating with others. I am a quick learner and I am always looking for new challenges.",
+      "Dedicated and enthusiastic MERN Stack Developer with a passion for technology and problem-solving.",
     url: 'https://portfolio-ayan.netlify.app/',
     siteName: 'Ayan Naseer Portfolio',
     images: [
