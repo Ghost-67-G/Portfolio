@@ -1,11 +1,12 @@
 {
-  "name": "developer-portfolio",
+  "name": "ayan-portfolio",
   "description": "Portfolio of Ayan Naseer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -15,6 +16,7 @@
     "axios": "^1.6.8",
     "lottie-react": "^2.4.0",
     "next": "^14.1.3",
+    "next-sitemap": "^4.2.3",
     "react": "latest",
     "react-dom": "latest",
     "react-fast-marquee": "^1.6.2",
