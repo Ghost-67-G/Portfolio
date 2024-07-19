@@ -21,9 +21,7 @@ export const metadata = {
     siteName: 'Ayan Naseer Portfolio',
     images: [
       {
-        url: 'https://portfolio-ayan.netlify.app/_next/image?url=%2Fprofile.jpeg&w=800&h=600&q=75',
-        width: 800,
-        height: 600,
+        url: 'https://i.postimg.cc/SxLQWxjv/studio-cbccf4021843dcf3fa76347421d6a889-wsighyog.jpg',
         alt: 'Profile',
       },
     ],
