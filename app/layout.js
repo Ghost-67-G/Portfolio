@@ -23,7 +23,7 @@ export const metadata = {
     siteName: 'Ayan Naseer Portfolio',
     images: [
       {
-        url: 'https://i.postimg.cc/SxLQWxjv/studio-cbccf4021843dcf3fa76347421d6a889-wsighyog.jpg',
+        url: 'https://i.postimg.cc/jSpRNrS1/Portfolio.png',
         alt: 'Profile',
       },
     ],
@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
             ],
             "jobTitle": "MERN Stack Developer",
             "description": "My name is Ayan Naseer. I am a dedicated and enthusiastic MERN Stack Developer with a passion for technology and problem-solving. I thrive on learning and exploring new technologies, driven by a self-motivated attitude and a quick learning ability. My expertise lies in JavaScript, enabling me to build robust and scalable web applications. I am committed to making the web more accessible and open to everyone. Whether it's frontend, backend, or full-stack development, I am eager to contribute to exciting projects that align with my skills and interests. I am available for job opportunities that offer growth and challenge in the field of web development.",
-            "image": 'https://i.postimg.cc/SxLQWxjv/studio-cbccf4021843dcf3fa76347421d6a889-wsighyog.jpg'
+            "image": 'https://i.postimg.cc/jSpRNrS1/Portfolio.png'
           })}
         </script>
       </head>
