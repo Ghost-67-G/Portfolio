@@ -17,8 +17,8 @@ function AboutSection({ personalData }) {
           <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
             Who I am?
           </p>
-          <p className="text-gray-200 text-sm lg:text-lg">
-            {personalData.description}
+          <p dangerouslySetInnerHTML={{ __html: personalData.description }} className="text-gray-200 text-sm lg:text-lg">
+            {/* {personalData.description} */}
           </p>
         </div>
         <div className="flex justify-center order-1 lg:order-2">
