@@ -17,7 +17,7 @@ function AboutSection({ personalData }) {
           <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
             Who I am?
           </p>
-          <p dangerouslySetInnerHTML={{ __html: personalData.description }} className="text-gray-200 text-sm lg:text-lg">
+          <p dangerouslySetInnerHTML={{ __html: personalData?.description }} className="text-gray-200 text-sm lg:text-lg">
             {/* {personalData.description} */}
           </p>
         </div>

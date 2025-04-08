@@ -16,7 +16,7 @@ const Projects = ({ projectsData }) => {
 
       <div className="pt-24">
         <div className="flex flex-col gap-6">
-          {projectsData.map((project, index) => (
+          {projectsData?.map((project, index) => (
             <div
               id={`sticky-card-${index + 1}`}
               key={index}

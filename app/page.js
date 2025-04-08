@@ -40,17 +40,17 @@ const getData = async () => {
 
 export default async function Home() {
   const data = await getData();
-  const blogs = await getBlogData(personalData.devUsername);
+  // const blogs = await getBlogData(personalData.devUsername);
 
   return (
     <>
-      <HeroSection personalData={data?.personal} />
+      <HeroSection personalData={data?.personal} skills={data?.skills} />
       <AboutSection personalData={data?.personal} />
       <Experience experiences={data?.experiences} />
       <Skills skillsData={data?.skills} />
       <Projects projectsData={data?.projects} />
       <Education educations={data?.educations} />
-      {blogs && <Blog blogs={blogs} />}
+      {/* {blogs && <Blog blogs={blogs} />} */}
       <ContactSection />
     </>
   );
