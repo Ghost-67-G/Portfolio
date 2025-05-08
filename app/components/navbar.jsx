@@ -14,7 +14,7 @@ function Navbar() {
             }}
             className=" text-[#16f2b3] text-3xl font-bold"
           >
-            {personalData.name}
+            {personalData?.name}
           </Link>
         </div>
 

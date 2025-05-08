@@ -4,7 +4,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
+import { FaFacebook, FaStackOverflow, FaTwitterSquare } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
@@ -25,28 +25,56 @@ function HeroSection({ personalData, skills }) {
         <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
           <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
             Hello, <br />
-            I&apos;m <span className=" text-pink-500">{personalData?.name}</span>
+            I&apos;m{" "}
+            <span className=" text-pink-500">{personalData?.name}</span>
             {`, an Experienced `}
-            <span className=" text-[#16f2b3]">{personalData?.designation}</span>.
+            <span className=" text-[#16f2b3]">{personalData?.designation}</span>
+            .
           </h1>
-          <Link href={personalData?.mapLink|| "/"|| '/'} target="_blank" className="my-3 flex items-center gap-3">
+          <Link
+            href={personalData?.mapLink || "/" || "/"}
+            target="_blank"
+            className="my-3 flex items-center gap-3"
+          >
             <FaLocationDot color="#ec4899" /> {personalData?.address}
           </Link>
           <div className="my-12 flex items-center gap-5">
-            <Link
-              href={personalData?.github|| "/"}
-              target="_blank"
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <BsGithub size={30} />
-            </Link>
-            <Link
-              href={personalData?.linkedIn|| "/"}
-              target="_blank"
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <BsLinkedin size={30} />
-            </Link>
+            {personalData?.github && (
+              <Link
+                href={personalData?.github || "/"}
+                target="_blank"
+                className="transition-all text-pink-500 hover:scale-125 duration-300"
+              >
+                <BsGithub size={30} />
+              </Link>
+            )}
+            {personalData?.twitter && (
+              <Link
+                href={personalData?.twitter || "/"}
+                target="_blank"
+                className="transition-all text-pink-500 hover:scale-125 duration-300"
+              >
+                <FaTwitterSquare size={30} />
+              </Link>
+            )}
+            {personalData?.stackOverflow && (
+              <Link
+                href={personalData?.stackOverflow || "/"}
+                target="_blank"
+                className="transition-all text-pink-500 hover:scale-125 duration-300"
+              >
+                <FaStackOverflow size={30} />
+              </Link>
+            )}
+            {personalData?.linkedIn && (
+              <Link
+                href={personalData?.linkedIn || "/"}
+                target="_blank"
+                className="transition-all text-pink-500 hover:scale-125 duration-300"
+              >
+                <BsLinkedin size={30} />
+              </Link>
+            )}
             {/* <Link
               href={personalData?.facebook|| "/"}
               target="_blank"
@@ -54,13 +82,15 @@ function HeroSection({ personalData, skills }) {
             >
               <FaFacebook size={30} />
             </Link> */}
-            <Link
-              href={personalData?.leetcode|| "/"}
-              target="_blank"
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <SiLeetcode size={30} />
-            </Link>
+            {personalData?.leetcode && (
+              <Link
+                href={personalData?.leetcode || "/"}
+                target="_blank"
+                className="transition-all text-pink-500 hover:scale-125 duration-300"
+              >
+                <SiLeetcode size={30} />
+              </Link>
+            )}
           </div>
 
           <div className="flex items-center gap-3">
@@ -78,7 +108,7 @@ function HeroSection({ personalData, skills }) {
               className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold"
               role="button"
               target="_blank"
-              href={personalData?.resume|| "/"}
+              href={personalData?.resume || "/"}
             >
               <span>Get Resume</span>
               <MdDownload size={16} />
