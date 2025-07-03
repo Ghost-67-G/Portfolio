@@ -21,6 +21,12 @@ export const metadata = {
       "Dedicated and enthusiastic MERN Stack Developer with a passion for technology and problem-solving.",
     url: 'https://portfolio-ayan.netlify.app/',
     siteName: 'Ayan Naseer Portfolio',
+    image: {
+      url: 'https://i.postimg.cc/jSpRNrS1/Portfolio.png',
+      width: 1200,
+      height: 630,
+      alt: 'Portfolio of Ayan Naseer - Mern Stack Developer',
+    },
     images: [
       {
         url: 'https://i.postimg.cc/jSpRNrS1/Portfolio.png',
