@@ -22,14 +22,14 @@ export const metadata = {
     url: 'https://portfolio-ayan.netlify.app/',
     siteName: 'Ayan Naseer Portfolio',
     image: {
-      url: 'https://i.postimg.cc/jSpRNrS1/Portfolio.png',
+      url: 'https://i.postimg.cc/SR4VmgRV/OG.png',
       width: 1200,
       height: 630,
       alt: 'Portfolio of Ayan Naseer - Mern Stack Developer',
     },
     images: [
       {
-        url: 'https://i.postimg.cc/jSpRNrS1/Portfolio.png',
+        url: 'https://i.postimg.cc/SR4VmgRV/OG.png',
         alt: 'Profile',
       },
     ],
