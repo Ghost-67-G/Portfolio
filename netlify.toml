@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://portfolio-ayan.netlify.app/*"
+  to = "https://ayan.is-a.dev/:splat"
+  status = 301
+  force = true

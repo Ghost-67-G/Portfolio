@@ -19,7 +19,7 @@ export const metadata = {
     title: 'Portfolio of Ayan Naseer - Mern Stack Developer',
     description:
       "Dedicated and enthusiastic MERN Stack Developer with a passion for technology and problem-solving.",
-    url: 'https://portfolio-ayan.netlify.app/',
+    url: 'https://ayan.is-a.dev/',
     siteName: 'Ayan Naseer Portfolio',
     image: {
       url: 'https://i.postimg.cc/SR4VmgRV/OG.png',
@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Ayan Naseer",
-            "url": "https://portfolio-ayan.netlify.app/",
+            "url": "https://ayan.is-a.dev/",
             "sameAs": [
               "https://github.com/ghost-67-g",
               "https://www.linkedin.com/in/ayan-naseer/"

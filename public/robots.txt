@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://portfolio-ayan.netlify.app
+Host: https://ayan.is-a.dev
 
 # Sitemaps
-Sitemap: https://portfolio-ayan.netlify.app/sitemap.xml
+Sitemap: https://ayan.is-a.dev/sitemap.xml
