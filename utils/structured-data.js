@@ -21,6 +21,8 @@ export function homeJsonLd() {
     "@id": id("person"),
     name: personalData.name,
     alternateName: "Ayan Naseer",
+    givenName: "Ayan",
+    familyName: "Naseer",
     url: siteUrl,
     image: `${siteUrl}${personalData.profile}`,
     jobTitle: personalData.title,
@@ -64,7 +66,7 @@ export function homeJsonLd() {
       "Firebase",
       "Electron",
     ],
-    sameAs: Object.values(personalData.links),
+    sameAs: [...Object.values(personalData.links), ...personalData.otherProfiles],
   };
 
   const website = {

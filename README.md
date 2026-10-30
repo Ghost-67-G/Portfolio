@@ -40,6 +40,10 @@ Optional environment variables, in `.env.local`:
 | `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`, `NEXT_PUBLIC_RECAPTCHA_SECRET_KEY` | Captcha on the contact form (shown only when both are set) |
 | `NEXT_PUBLIC_GTM` | Google Tag Manager |
 
+## After deploying
+
+Run `npm run indexnow` once the new version is live. It tells Bing (which also feeds ChatGPT search and Copilot) to recrawl every page in the sitemap. For Google, use URL Inspection → Request indexing in Search Console.
+
 ## Also here
 
 `/tools` has a set of small browser utilities: formatters, converters and generators.

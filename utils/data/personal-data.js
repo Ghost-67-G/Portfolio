@@ -25,4 +25,10 @@ export const personalData = {
     fiverr: "https://www.fiverr.com/ayannaseerghost",
     studio: "https://codingstack.site",
   },
+  // Not shown on the page; listed in structured data so search engines can tie
+  // these profiles to the same person.
+  otherProfiles: [
+    "https://stackoverflow.com/users/25735457/ayan-naseer-ghost-67",
+    "https://leetcode.com/Ghost-67-G/",
+  ],
 };
