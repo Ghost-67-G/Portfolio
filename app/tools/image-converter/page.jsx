@@ -38,19 +38,19 @@ const ImageConverter = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
-            <div className="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                <h3 className="text-xl font-semibold mb-4">Image Converter</h3>
+        <div className="flex flex-col items-center">
+            <div className="w-full max-w-lg bg-paper-2 border border-line p-6 rounded-lg text-center">
+                <h1 className="text-2xl font-medium tracking-tight mb-5">Image Converter</h1>
                 <input 
                     type="file" 
                     accept="image/*" 
                     onChange={handleFileChange} 
-                    className="mb-4 w-full text-gray-900 border border-gray-600 rounded p-2"
+                    className="mb-4 w-full text-ink border border-line rounded p-2"
                 />
                 <select 
                     onChange={(e) => setFormat(e.target.value)} 
                     value={format} 
-                    className="mb-4 w-full bg-gray-700 text-white border border-gray-600 rounded p-2"
+                    className="mb-4 w-full bg-paper text-ink border border-line rounded p-2"
                 >
                     <option value="image/jpeg">JPEG</option>
                     <option value="image/png">PNG</option>
@@ -58,7 +58,7 @@ const ImageConverter = () => {
                 </select>
                 <button 
                     onClick={convertImage} 
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded mb-4"
+                    className="w-full bg-ink hover:bg-ink/80 text-paper p-2 rounded mb-4"
                 >
                     Convert
                 </button>
@@ -69,7 +69,7 @@ const ImageConverter = () => {
                         <a 
                             href={convertedImage} 
                             download={`converted_image.${format.split('/')[1]}`} 
-                            className="text-blue-400 hover:underline"
+                            className="text-accent hover:underline"
                         >
                             Download Converted Image
                         </a>

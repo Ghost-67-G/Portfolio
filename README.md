@@ -1,49 +1,45 @@
-# Ayan Naseer - Portfolio
+# M. Ayan Naseer · Portfolio
 
-Welcome to my portfolio repository! This project showcases my work and skills as a dedicated and enthusiastic MERN Stack Developer. I thrive on learning and exploring new technologies, driven by a self-motivated attitude and a quick learning ability. My expertise lies in JavaScript, enabling me to build robust and scalable web applications.
+Source for [ayan.is-a.dev](https://ayan.is-a.dev), the portfolio of M. Ayan Naseer, a full stack developer working remotely with US and UK teams.
 
-## About Me
+Built with Next.js 14 (App Router) and Tailwind CSS, deployed on Netlify. The homepage is fully static.
 
-My name is Ayan Naseer. I am committed to making the web more accessible and open to everyone. Whether it's frontend, backend, or full-stack development, I am eager to contribute to exciting projects that align with my skills and interests. I am available for job opportunities that offer growth and challenge in the field of web development.
+## Editing content
 
-## Skills
+All content lives in `utils/data/`:
 
-- **Frontend:** HTML, CSS, JavaScript, TypeScript, React, Next.js, ViteJS, Tailwind, Bootstrap, MaterialUI
-- **Backend:** Node.js, Strapi
-- **Database:** MongoDB, MySQL, PostgreSQL
-- **Others:** Git, AWS, Docker, Firebase
+| File | What it holds |
+| --- | --- |
+| `personal-data.js` | Name, headline, contact details, availability, profile links |
+| `services.js` | Services list |
+| `projects-data.js` | Case studies (with their diagrams) and open source projects |
+| `experience.js` | Work history |
+| `skills.js` | Grouped skills |
+| `educations.js` | Education |
+| `faq.js` | FAQ section (also used for FAQ structured data) |
+| `tools.js` | Tools list and each tool page's title and description |
 
-## Experience
+Change a file, commit, and Netlify redeploys. Generated from the same data at build time:
 
-- **MERN Stack Developer**, Genius Mind Zone (April 2023 - Present)
-- **Backend Developer**, Binisar Textile (Nov 2022 - Mar 2023)
-- **MERN Stack Intern (Paid)**, ITSolutionNYC (Aug 2022 - Oct 2022)
-- **MERN Stack Intern**, Gamica Cloud (Mar 2022 - Aug 2022)
+- `app/opengraph-image.js`: the link preview image
+- `utils/structured-data.js`: schema.org JSON-LD on the homepage (Person, ProfilePage, ProfessionalService, FAQPage)
+- `app/llms.txt/route.js`: a plain-text profile at `/llms.txt` for AI assistants
 
-## Education
+## Running locally
 
-- **Intermediate Certificate**, Govt. M.C Higher Secondary School, Faisalabad (2020 - 2022)
-- **Matriculation Certificate**, Govt. M.C Higher Secondary School, Faisalabad (2018 - 2020)
+```bash
+npm install
+npm run dev
+```
 
-## Contact
+Optional environment variables, in `.env.local`:
 
-- **Email:** [ayannaseerg67@gmail.com](mailto:ayannaseerg67@gmail.com)
-- **Phone:** [+923022850803](tel:+923022850803)
-- **Address:** Faisalabad, Punjab, Pakistan
+| Variable | Used for |
+| --- | --- |
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`, `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Contact form delivery |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`, `NEXT_PUBLIC_RECAPTCHA_SECRET_KEY` | Captcha on the contact form (shown only when both are set) |
+| `NEXT_PUBLIC_GTM` | Google Tag Manager |
 
-## Online Profiles
+## Also here
 
-- **GitHub:** [github.com/ghost-67-g](https://github.com/ghost-67-g)
-- **LinkedIn:** [linkedin.com/in/ayan-naseer](https://www.linkedin.com/in/ayan-naseer/)
-- **Twitter:** [twitter.com/said7388](https://twitter.com/said7388)
-- **Facebook:** [facebook.com/ghost67g](https://www.facebook.com/ghost67g/)
-- **Stack Overflow:** [stackoverflow.com/users/25735457/ayan-naseer-ghost-67](https://stackoverflow.com/users/25735457/ayan-naseer-ghost-67)
-- **LeetCode:** [leetcode.com/Ghost-67-G](https://leetcode.com/Ghost-67-G/)
-
-## Resume
-
-You can view my resume [here](https://ghost-67-g.github.io/resume/).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+`/tools` has a set of small browser utilities: formatters, converters and generators.

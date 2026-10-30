@@ -38,9 +38,9 @@ const PasswordGenerator = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
-            <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">Password Generator</h3>
+        <div className="flex flex-col items-center">
+            <div className="w-full max-w-md bg-paper-2 border border-line p-6 rounded-lg">
+                <h1 className="text-2xl font-medium tracking-tight mb-5">Password Generator</h1>
                 <div className="mb-4">
                     <label className="block text-sm mb-2">Length:</label>
                     <input 
@@ -49,7 +49,7 @@ const PasswordGenerator = () => {
                         onChange={(e) => setLength(e.target.value)} 
                         min="4" 
                         max="32" 
-                        className="w-full p-2 bg-gray-700 border border-gray-600 rounded text-white"
+                        className="w-full p-2 bg-paper border border-line rounded text-ink"
                     />
                 </div>
                 <div className="mb-4 space-y-2">
@@ -92,7 +92,7 @@ const PasswordGenerator = () => {
                 </div>
                 <button 
                     onClick={generatePassword} 
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded mb-4"
+                    className="w-full bg-ink hover:bg-ink/80 text-paper p-2 rounded mb-4"
                 >
                     Generate
                 </button>
@@ -100,7 +100,7 @@ const PasswordGenerator = () => {
                 <button 
                     onClick={copyToClipboard} 
                     disabled={!password}
-                    className={`w-full p-2 rounded ${password ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-600 cursor-not-allowed'} text-white`}
+                    className={`w-full p-2 rounded ${password ? 'bg-accent hover:bg-accent/90' : 'bg-ink/30 cursor-not-allowed'} text-paper`}
                 >
                     {copied ? 'Copied!' : 'Copy Password'}
                 </button>

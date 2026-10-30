@@ -62,9 +62,9 @@ const UnitConverter = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
-            <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">Unit Converter</h3>
+        <div className="flex flex-col items-center">
+            <div className="w-full max-w-md bg-paper-2 border border-line p-6 rounded-lg">
+                <h1 className="text-2xl font-medium tracking-tight mb-5">Unit Converter</h1>
                 <div className="flex mb-4">
                     <select
                         value={unitFrom}
@@ -81,7 +81,7 @@ const UnitConverter = () => {
                                 setUnitTo('celsius')
                             }
                         }}
-                        className="bg-gray-700 text-white border border-gray-600 rounded p-2 mr-2"
+                        className="bg-paper text-ink border border-line rounded p-2 mr-2"
                     >
                         {/* Length Units */}
                         <option value="feet">Feet</option>
@@ -105,7 +105,7 @@ const UnitConverter = () => {
                         value={value} 
                         onChange={(e) => setValue(e.target.value)} 
                         placeholder={`Enter value in ${unitFrom}`}
-                        className="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded"
+                        className="w-full p-2 bg-paper text-ink border border-line rounded"
                     />
                 </div>
                 <div className="flex mb-4" >
@@ -113,7 +113,7 @@ const UnitConverter = () => {
                         value={unitTo}
                         onChange={(e) => setUnitTo(e.target.value)}
                         style={{textTransform: 'capitalize'}}
-                        className="bg-gray-700 text-white border border-gray-600 rounded p-2 mr-2"
+                        className="bg-paper text-ink border border-line rounded p-2 mr-2"
                     >
                       {Object.keys(unitsTo).map((unit) => (
                         <option style={{textTransform: 'capitalize'}} key={unit} value={unit}>
@@ -123,7 +123,7 @@ const UnitConverter = () => {
                     </select>
                     <button 
                         onClick={convertUnits} 
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded"
+                        className="w-full bg-ink hover:bg-ink/80 text-paper p-2 rounded"
                     >
                         Convert
                     </button>

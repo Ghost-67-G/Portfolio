@@ -23,25 +23,25 @@ const FileCompressor = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
-            <div className="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">File Compressor</h3>
+        <div className="flex flex-col items-center">
+            <div className="w-full max-w-lg bg-paper-2 border border-line p-6 rounded-lg">
+                <h1 className="text-2xl font-medium tracking-tight mb-5">File Compressor</h1>
                 <input 
                     type="file" 
                     multiple 
                     onChange={handleFileChange} 
-                    className="w-full mb-4 bg-gray-700 border border-gray-600 rounded p-2"
+                    className="w-full mb-4 bg-paper border border-line rounded p-2"
                 />
                 <input 
                     type="text" 
                     value={zipFileName} 
                     onChange={(e) => setZipFileName(e.target.value)} 
                     placeholder="Zip file name (optional)"
-                    className="w-full mb-4 bg-gray-700 border border-gray-600 rounded p-2"
+                    className="w-full mb-4 bg-paper border border-line rounded p-2"
                 />
                 <button 
                     onClick={compressFiles} 
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded"
+                    className="w-full bg-ink hover:bg-ink/80 text-paper p-2 rounded"
                 >
                     Compress and Download
                 </button>

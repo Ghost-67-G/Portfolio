@@ -1,104 +1,63 @@
-// @flow strict
-import { personalData } from '@/utils/data/personal-data';
-import Link from 'next/link';
-import { BiLogoLinkedin } from "react-icons/bi";
-import { CiLocationOn } from "react-icons/ci";
-import { FaFacebook, FaStackOverflow } from 'react-icons/fa';
-import { FaXTwitter } from "react-icons/fa6";
-import { IoLogoGithub, IoMdCall } from "react-icons/io";
-import { MdAlternateEmail } from "react-icons/md";
-import ContactWithCaptcha from './contact-with-captcha';
-import ContactWithoutCaptcha from './contact-without-captcha';
+import CopyButton from "../../helper/copy-button";
+import Section from "../section";
+import ContactForm from "./contact-form";
 
 function ContactSection({ personalData }) {
-  return (
-    <div id="contact" className="my-12 lg:my-16 relative mt-24 text-white">
-      <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
-          CONTACT
-        </span>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        {
-          (process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY) ? <ContactWithCaptcha />
-            : <ContactWithoutCaptcha />
-        }
+  const { links } = personalData;
+  const captcha = Boolean(
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY
+  );
 
-        <div className="lg:w-3/4 ">
-          <div className="flex flex-col gap-5 lg:gap-9">
-            <Link target="_blank" href={'mailto:'+personalData?.email} className="text-sm md:text-xl flex items-center gap-3">
-              <MdAlternateEmail
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData?.email}</span>
-            </Link>
-            <Link href={'https://wa.me/'+(personalData?.phone)?.replace(/\s+/g,'')?.replace('+','')} target='_blank' className="text-sm md:text-xl flex items-center gap-3">
-              <IoMdCall
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>
-                {personalData?.phone}
-              </span>
-            </Link>
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <CiLocationOn
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>
-                {personalData?.address}
-              </span>
-            </p>
+  const channels = [
+    {
+      label: "Phone / WhatsApp",
+      value: personalData.phone,
+      href: `https://wa.me/${personalData.phone.replace(/[^\d]/g, "")}`,
+    },
+    { label: "LinkedIn", value: "linkedin.com/in/ayan-naseer", href: links.linkedIn },
+    { label: "GitHub", value: "github.com/Ghost-67-G", href: links.github },
+    { label: "Fiverr", value: "fiverr.com/ayannaseerghost", href: links.fiverr },
+    { label: "Studio", value: "codingstack.site", href: links.studio },
+  ];
+
+  return (
+    <Section
+      id="contact"
+      title="Contact"
+      description="Remote, working US and UK hours. Contracts through Deel or Payoneer."
+    >
+      <p className="max-w-[30ch] text-2xl font-medium leading-snug tracking-tight md:text-[1.75rem]">
+        Tell me what you&apos;re building and where you need help.
+      </p>
+
+      <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
+        <a href={`mailto:${personalData.email}`} className="link text-lg font-medium">
+          {personalData.email}
+        </a>
+        <CopyButton value={personalData.email} label="Copy email" />
+      </div>
+
+      <dl className="mt-10 divide-y divide-line border-y border-line text-[15px]">
+        {channels.map((channel) => (
+          <div key={channel.label} className="grid gap-x-4 gap-y-0.5 py-3 sm:grid-cols-[11rem_1fr]">
+            <dt className="text-ink-3">{channel.label}</dt>
+            <dd className="min-w-0 break-words">
+              <a href={channel.href} target="_blank" rel="noopener noreferrer" className="link">
+                {channel.value}
+              </a>
+            </dd>
           </div>
-          <div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
-          {personalData?.github &&
-            <Link target="_blank" href={personalData?.github|| '/'}>
-              <IoLogoGithub
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-          }
-          {personalData?.linkedIn &&
-            <Link target="_blank" href={personalData?.linkedIn|| '/'}>
-              <BiLogoLinkedin
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-          }
-          {personalData?.twitter &&
-            <Link target="_blank" href={personalData?.twitter|| '/'}>
-              <FaXTwitter
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-          }
-          {personalData?.stackOverflow &&
-            <Link target="_blank" href={personalData?.stackOverflow|| '/'}>
-              <FaStackOverflow
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-          }
-          {personalData?.facebook &&
-            <Link target="_blank" href={personalData?.facebook|| '/'}>
-              <FaFacebook
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-          }
-          </div>
+        ))}
+      </dl>
+
+      <div className="mt-14">
+        <h3 className="text-lg font-medium">Or send a message here</h3>
+        <div className="mt-6">
+          <ContactForm captcha={captcha} email={personalData.email} />
         </div>
       </div>
-    </div>
+    </Section>
   );
-};
+}
 
 export default ContactSection;

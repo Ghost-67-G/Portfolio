@@ -6,17 +6,17 @@ const MarkdownEditor = () => {
     const [markdownText, setMarkdownText] = useState('');
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
-            <div className="w-full max-w-2xl bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">Markdown Editor</h3>
+        <div className="flex flex-col items-center">
+            <div className="w-full max-w-2xl bg-paper-2 border border-line p-6 rounded-lg">
+                <h1 className="text-2xl font-medium tracking-tight mb-5">Markdown Editor</h1>
                 <textarea 
                     value={markdownText} 
                     onChange={(e) => setMarkdownText(e.target.value)} 
                     placeholder="Write your markdown here"
-                    className="w-full h-52 bg-gray-700 text-white border border-gray-600 rounded p-2 mb-4"
+                    className="w-full h-52 bg-paper text-ink border border-line rounded p-2 mb-4"
                 />
                 <h4 className="text-lg font-semibold mb-2">Preview:</h4>
-                <div className="bg-gray-700 p-4 rounded border border-gray-600">
+                <div className="bg-paper p-4 rounded border border-line">
                     {/* This div has no Tailwind styles for markdown */}
                     <div>
                         <ReactMarkdown className='markdown'>{markdownText}</ReactMarkdown>

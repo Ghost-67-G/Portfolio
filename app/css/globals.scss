@@ -2,124 +2,308 @@
 @tailwind components;
 @tailwind utilities;
 
+// Colours are stored as RGB channels so Tailwind can apply opacity (bg-ink/80).
 :root {
-  --foreground-rgb: rgb(211, 216, 232);
+  --paper: 246 245 241;
+  --paper-2: 252 252 250;
+  --ink: 23 23 21;
+  --ink-2: 82 81 76;
+  --ink-3: 111 109 102;
+  --line: 224 221 213;
+  --line-strong: 196 193 184;
+  --accent: 22 101 79;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --paper: 18 18 17;
+    --paper-2: 27 27 25;
+    --ink: 236 235 230;
+    --ink-2: 168 166 158;
+    --ink-3: 133 131 123;
+    --line: 45 44 41;
+    --line-strong: 74 73 68;
+    --accent: 110 201 168;
+    color-scheme: dark;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background-color: #0d1224;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper text-ink antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background: rgb(var(--accent) / 0.22);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  input,
+  select,
+  textarea {
+    accent-color: rgb(var(--accent));
+  }
+
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }
 
-#sticky-card-1 {
-  --index: 1;
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8 lg:px-10;
+  }
+
+  .link {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    text-decoration-color: rgb(var(--line-strong));
+    transition: text-decoration-color 150ms ease, color 150ms ease;
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+
+  .btn {
+    @apply inline-flex h-10 select-none items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 text-sm font-medium;
+    transition: transform 160ms var(--ease-out), background-color 150ms ease, border-color 150ms ease;
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    &:disabled {
+      @apply cursor-not-allowed opacity-60;
+      transform: none;
+    }
+  }
+
+  .btn-primary {
+    @apply bg-ink text-paper hover:bg-ink/80;
+  }
+
+  .btn-secondary {
+    @apply border border-line-strong text-ink hover:border-ink-3 hover:bg-ink/[0.03];
+  }
+
+  .field {
+    @apply w-full rounded-md border border-line bg-paper-2 px-3 py-2.5 text-[15px] text-ink placeholder:text-ink-3;
+    transition: border-color 150ms ease;
+
+    &:focus {
+      @apply border-ink-3 outline-none;
+    }
+
+    &[aria-invalid='true'] {
+      @apply border-red-600 dark:border-red-400;
+    }
+  }
+
+  // Hyphen markers for bullet lists, so they read like notes rather than a template.
+  .bullets > li {
+    position: relative;
+    padding-left: 1.25rem;
+
+    & + li {
+      margin-top: 0.5rem;
+    }
+
+    &::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: rgb(var(--ink-3));
+    }
+  }
+
+  // Inline list separated by middle dots. The space after each item gives the
+  // line a place to wrap between items instead of inside them.
+  .dotted > li {
+    display: inline;
+
+    &:not(:last-child)::after {
+      content: '\00a0·';
+      color: rgb(var(--ink-3));
+    }
+  }
+
+  // Small system diagrams in the case studies.
+  .flow {
+    @apply rounded-lg border border-line p-4 sm:p-5;
+    background-color: rgb(var(--paper-2));
+    background-image: radial-gradient(rgb(var(--line-strong) / 0.55) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+
+  .flow-node {
+    @apply flex-1 rounded-md border border-line-strong bg-paper-2 px-3 py-2.5;
+
+    &.is-planned {
+      @apply border-dashed;
+    }
+  }
+
+  .flow-link {
+    @apply relative flex shrink-0 items-center justify-center;
+    height: 1.75rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: rgb(var(--ink-3));
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 1px;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      border-right: 1px solid rgb(var(--ink-3));
+      border-bottom: 1px solid rgb(var(--ink-3));
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    &.is-labelled {
+      height: 2.5rem;
+    }
+
+    span {
+      @apply relative z-10 whitespace-nowrap bg-paper-2 px-1.5 font-mono text-[11px] leading-none text-ink-3;
+    }
+
+    @media (min-width: 640px) {
+      height: auto;
+      width: 2rem;
+
+      &.is-labelled {
+        height: auto;
+        width: 4.75rem;
+      }
+
+      &::before {
+        top: 50%;
+        bottom: auto;
+        left: 0;
+        right: 0;
+        width: auto;
+        height: 1px;
+      }
+
+      &::after {
+        top: 50%;
+        bottom: auto;
+        left: auto;
+        right: 1px;
+        transform: translateY(-50%) rotate(-45deg);
+      }
+    }
+  }
 }
 
-#sticky-card-2 {
-  --index: 2;
+// One-time entrance for the hero. Short and small, so it reads as the page
+// settling in rather than as an effect.
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-#sticky-card-3 {
-  --index: 3;
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
 }
 
-#sticky-card-4 {
-  --index: 4;
+.rise {
+  animation: rise 520ms var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
 }
 
-.sticky-card {
-  // padding-top: calc(var(--index) * 2.5rem);
-  top: calc(var(--index) * 4rem);
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation-name: fade;
+    animation-duration: 200ms;
+  }
 }
 
+// Rendered markdown in the markdown editor tool.
 .markdown {
-  html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+  > * + * {
+    margin-top: 0.75em;
+  }
 
-/* ===== CUSTOM RESET ===== */
+  h1 {
+    @apply text-2xl font-medium;
+  }
 
-object{outline:none; display:block; overflow:hidden} /* force redraw on IE8, fix outline/scroll bug on Firefox 3.6, remove unnecessary margin (copied from swffit)  */
-textarea{overflow:auto} /* fix IE */
-iframe{border:0}
+  h2 {
+    @apply text-xl font-medium;
+  }
 
-/* fix line-height [https://gist.github.com/413930] */
-sup, sub{line-height:0; font-size:.75em; position:relative; vertical-align:baseline}
-sup{top:-0.5em}
-sub{bottom:-0.25em}
+  h3 {
+    @apply text-lg font-medium;
+  }
 
+  ul {
+    @apply list-disc pl-5;
+  }
 
-/* ========================= GENERAL TAGS ======================== */
+  ol {
+    @apply list-decimal pl-5;
+  }
 
-html{font-family:Arial, Helvetica, sans-serif; overflow-y:scroll; min-width:1000px}
-body{background-color:#fff; color:#444; font-size:12px; line-height:1.5em}
+  a {
+    text-decoration-line: underline;
+    text-underline-offset: 0.22em;
+  }
 
-h1, h2, h3, h4, h5, h6{margin:1.5em 0 .833em; font-weight:bold; line-height:1em}
-h1, .h1{font-size:2em}
-h2, .h2{font-size:1.6em}
-h3, .h3{font-size:1.4em}
-h4, .h4{font-size:1.2em}
-h5, .h5{font-size:1.1em}
-h6, .h6{font-size:1em}
+  code {
+    @apply rounded bg-ink/5 px-1 font-mono text-[0.9em];
+  }
 
-p{margin:1em 0}
-small{font-size:.833em}
-em, i{font-style:italic}
-strong, b{font-weight:bold}
-code, pre{font-family:monospace}
+  pre {
+    @apply overflow-x-auto rounded-md bg-ink/5 p-3;
 
-a{text-decoration:underline}
-a:hover, a:focus{text-decoration:none}
-a:hover, a:active{outline:none}
+    code {
+      @apply bg-transparent p-0;
+    }
+  }
 
-hr{background-color:#fff; border:1px solid #fff; border-top:1px solid #aaa; clear:both; margin:2em 0}
-blockquote{padding:0.2em 1em 0.2em 2em; border-left:3px solid #eee}
-
-
+  blockquote {
+    @apply border-l-2 border-line-strong pl-3 text-ink-2;
+  }
 }

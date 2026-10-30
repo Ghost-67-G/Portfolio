@@ -35,20 +35,20 @@ const TimestampConverter = () => {
     
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
-            <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">Timestamp Converter</h3>
+        <div className="flex flex-col items-center">
+            <div className="w-full max-w-md bg-paper-2 border border-line p-6 rounded-lg">
+                <h1 className="text-2xl font-medium tracking-tight mb-5">Timestamp Converter</h1>
                 <div className="mb-4">
                     <input 
                         type="text" 
                         value={timestamp} 
                         onChange={(e) => setTimestamp(e.target.value)} 
                         placeholder="Enter Unix timestamp"
-                        className={`w-full p-2 bg-gray-700 text-white border ${error && !timestamp ? 'border-red-500' : 'border-gray-600'} rounded mb-2`}
+                        className={`w-full p-2 bg-paper text-ink border ${error && !timestamp ? 'border-red-500' : 'border-line'} rounded mb-2`}
                         />
                     <button 
                         onClick={convertToHumanDate} 
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded mb-4"
+                        className="w-full bg-ink hover:bg-ink/80 text-paper p-2 rounded mb-4"
                     >
                         Convert to Date
                     </button>
@@ -59,11 +59,11 @@ const TimestampConverter = () => {
                         value={date} 
                         onChange={(e) => setDate(e.target.value)} 
                         placeholder="Enter Date (YYYY-MM-DD)"
-                        className={`w-full p-2 bg-gray-700 text-white border ${error && !timestamp ? 'border-red-500' : 'border-gray-600'} rounded mb-2`}
+                        className={`w-full p-2 bg-paper text-ink border ${error && !timestamp ? 'border-red-500' : 'border-line'} rounded mb-2`}
                         />
                     <button 
                         onClick={convertToTimestamp} 
-                        className="w-full bg-green-600 hover:bg-green-700 text-white p-2 rounded"
+                        className="w-full bg-accent hover:bg-accent/90 text-paper p-2 rounded"
                     >
                         Convert to Timestamp
                     </button>
@@ -71,8 +71,8 @@ const TimestampConverter = () => {
                 {error && <p className="text-red-500">{error}</p>}
 
                 <div className="mt-4">
-                    <p className="text-lg">Converted Date: <span className="text-gray-300">{date || 'N/A'}</span></p>
-                    <p className="text-lg">Converted Timestamp: <span className="text-gray-300">{timestamp || 'N/A'}</span></p>
+                    <p className="text-lg">Converted Date: <span className="text-ink-2">{date || 'N/A'}</span></p>
+                    <p className="text-lg">Converted Timestamp: <span className="text-ink-2">{timestamp || 'N/A'}</span></p>
                 </div>
             </div>
         </div>

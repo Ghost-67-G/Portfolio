@@ -31,11 +31,11 @@ const TextCaseConverter = () => {
     };
 
     return (
-        <div className="h-[90vh] bg-gray-900 text-white flex flex-col items-center justify-center">
-            <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-                <h3 className="text-2xl font-bold mb-4">Text Case Converter</h3>
+        <div className="flex flex-col items-center">
+            <div className="bg-paper-2 border border-line p-8 rounded-lg w-full max-w-md">
+                <h1 className="text-2xl font-medium tracking-tight mb-5">Text Case Converter</h1>
                 <textarea
-                    className="w-full p-4 mb-4 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full p-4 mb-4 bg-paper text-ink rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/40"
                     value={text}
                     rows={5}
                     onChange={(e) => setText(e.target.value)}
@@ -44,41 +44,41 @@ const TextCaseConverter = () => {
                 <div className="flex flex-wrap justify-between gap-2 mb-4">
                     <button
                         onClick={toUpperCase}
-                        className="bg-indigo-600 hover:bg-indigo-500 text-white py-2 px-4 rounded-lg shadow-md transition duration-200"
+                        className="bg-ink hover:bg-ink/80 text-paper py-2 px-4 rounded-lg transition duration-200"
                     >
                         UPPERCASE
                     </button>
                     <button
                         onClick={toLowerCase}
-                        className="bg-indigo-600 hover:bg-indigo-500 text-white py-2 px-4 rounded-lg shadow-md transition duration-200"
+                        className="bg-ink hover:bg-ink/80 text-paper py-2 px-4 rounded-lg transition duration-200"
                     >
                         lowercase
                     </button>
                     <button
                         onClick={toCamelCase}
-                        className="bg-indigo-600 hover:bg-indigo-500 text-white py-2 px-4 rounded-lg shadow-md transition duration-200"
+                        className="bg-ink hover:bg-ink/80 text-paper py-2 px-4 rounded-lg transition duration-200"
                     >
                         camelCase
                     </button>
                     <button
                         onClick={toSnakeCase}
-                        className="bg-indigo-600 hover:bg-indigo-500 text-white py-2 px-4 rounded-lg shadow-md transition duration-200"
+                        className="bg-ink hover:bg-ink/80 text-paper py-2 px-4 rounded-lg transition duration-200"
                     >
                         snake_case
                     </button>
                 </div>
                 <p className="text-lg">Converted Text:</p>
-                <div className="bg-gray-700 p-4 mt-2 rounded-lg">
+                <div className="bg-paper p-4 mt-2 rounded-lg">
                     <p className="whitespace-pre-wrap break-all">{convertedText}</p>
                 </div>
                 {convertedText?<>
     <button
         onClick={copyToClipboard}
-        className="bg-green-600 hover:bg-green-500 text-white py-2 px-4 rounded-lg shadow-md transition duration-200"
+        className="bg-accent hover:bg-accent/90 text-paper py-2 px-4 rounded-lg transition duration-200"
         >
         Copy
     </button>
-    {copySuccess && <p className="mt-2 text-green-400">{copySuccess}</p>}
+    {copySuccess && <p className="mt-2 text-accent">{copySuccess}</p>}
         </>:null
                 }
             </div>

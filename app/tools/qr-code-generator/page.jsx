@@ -20,15 +20,15 @@ const downloadQRCode = () => {
 };
 
 return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
-        <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-4">QR Code Generator</h3>
+    <div className="flex flex-col items-center">
+        <div className="w-full max-w-md bg-paper-2 border border-line p-6 rounded-lg">
+            <h1 className="text-2xl font-medium tracking-tight mb-5">QR Code Generator</h1>
             <input 
                 type="text" 
                 value={input} 
                 onChange={(e) => setInput(e.target.value)} 
                 placeholder="Enter text or URL"
-                className="w-full p-2 bg-gray-700 text-white border border-gray-600 rounded mb-4"
+                className="w-full p-2 bg-paper text-ink border border-line rounded mb-4"
             />
             {input&& <>
             <div ref={qrCodeRef} className="flex justify-center mb-4">
@@ -36,7 +36,7 @@ return (
             </div>
             <button 
                 onClick={downloadQRCode} 
-                className="w-full bg-green-600 hover:bg-green-700 text-white p-2 rounded"
+                className="w-full bg-accent hover:bg-accent/90 text-paper p-2 rounded"
                 disabled={!input}
                 >
                 Download QR Code

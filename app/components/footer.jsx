@@ -1,48 +1,39 @@
-// @flow strict
-import { personalData } from "@/utils/data/personal-data";
 import Link from "next/link";
-import { CgGitFork } from "react-icons/cg";
-import { IoStar } from "react-icons/io5";
+import { personalData } from "@/utils/data/personal-data";
 
 function Footer() {
+  const { links } = personalData;
+
   return (
-    <div className="relative border-t bg-[#0d1224] border-[#353951] text-white">
-      <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] py-6 lg:py-10">
-        <div className="flex justify-center -z-40">
-          <div className="absolute top-0 h-[1px] w-1/2  bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
-        </div>
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <p className="text-sm">
-            © Developer Portfolio by{" "}
-            <Link
-              target="_blank"
-              href={personalData?.linkedIn || "/"}
-              className="text-[#16f2b3]"
-            >
-              {personalData?.name}
+    <footer className="border-t border-line">
+      <div className="wrap flex flex-col gap-4 py-8 text-sm text-ink-3 sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © {new Date().getFullYear()} {personalData.name}. Faisalabad, Pakistan.
+        </p>
+        <ul className="flex flex-wrap gap-x-5 gap-y-2">
+          <li>
+            <Link href="/tools" className="transition-colors hover:text-ink">
+              Dev tools
             </Link>
-          </p>
-          <div className="flex items-center gap-5">
-            <Link
-              target="_blank"
-              href={personalData?.github || "/"}
-              className="flex items-center gap-2 uppercase hover:text-[#16f2b3]"
-            >
-              <IoStar />
-              <span>Star</span>
-            </Link>
-            <Link
-              target="_blank"
-              href={personalData?.github || "/"}
-              className="flex items-center gap-2 uppercase hover:text-[#16f2b3]"
-            >
-              <CgGitFork />
-              <span>Fork</span>
-            </Link>
-          </div>
-        </div>
+          </li>
+          <li>
+            <a href={links.github} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-ink">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href={links.linkedIn} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-ink">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href={links.studio} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-ink">
+              CodingStack
+            </a>
+          </li>
+        </ul>
       </div>
-    </div>
+    </footer>
   );
 }
 

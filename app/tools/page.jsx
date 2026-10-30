@@ -1,34 +1,41 @@
-import React from 'react'
-import Card from '../components/tools/card'
+import Link from "next/link";
+import { personalData } from "@/utils/data/personal-data";
+import { shareImage, tools } from "@/utils/data/tools";
 
-const page = () => {
-  const array = Array(10).fill(null)
-  const tools  = [
-    {name:"Password Generator", description:"", image:"/image/password.jpg", link:"/tools/password-generator"},
-    {name:"Text Case Converter", description:"", image:"/image/textCC.png", link:"/tools/text-case-converter"},
-    {name:"Base64 Encoder/Decoder", description:"", image:"/image/baseED.png", link:"/tools/base64-encoder-decorde"},
-    {name:"Timestamp Converter", description:"", image:"/image/timestampC.png", link:"/tools/timestamp-converter"},
-    {name:"Unit Converter", description:"", image:"/image/unitC.png", link:"/tools/unit-converter"},
-    {name:"Regex Tester", description:"", image:"/image/regex.jpg", link:"/tools/regex-tester"},
-    {name:"QR Code Generator", description:"", image:"/image/qrgenerator.png", link:"/tools/qr-code-generator"},
-    {name:"JSON Formatter/Validator", description:"", image:"/image/jsonFV.png", link:"/tools/json-formatter-validator"},
-    {name:"CSS Minifier/Beautifier", description:"", image:"/image/cssMB.jpg", link:"/tools/css-minifier-beautifier"},
-    {name:"HTTP Header Inspector", description:"", image:"/image/HTTP-headers.jpg", link:"/tools/http-header-inspector"},
-    {name:"File Compressor", description:"", image:"/image/Compress.jpg", link:"/tools/file-compressor"},
-    {name:"Color Palette Generator", description:"", image:"/image/colorPG.png", link:"/tools/color-palette-generator"},
-    {name:"Markdown Editor", description:"", image:"/image/mkdown.jpg", link:"/tools/markdown-editor"},
-    {name:"Image Converter", description:"", image:"/image/image-converter.jpg", link:"/tools/image-converter"},
-    // {name:"Clipboard Manager", description:"", image:"/image/clipboardM.jpg"},
-  ]
+const title = "Free developer tools";
+const description =
+  "Free developer tools that run in your browser: JSON formatter, regex tester, Base64, timestamp and unit converters, QR codes and more.";
+
+export const metadata = {
+  title,
+  description,
+  alternates: { canonical: "/tools" },
+  openGraph: { title, description, url: "/tools", siteName: personalData.name, type: "website", images: [shareImage] },
+  twitter: { card: "summary_large_image", title, description, images: [shareImage] },
+};
+
+export default function ToolsPage() {
   return (
-    <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-2 xl:p-5'>
-    {tools.map((tool,index)=>(
-      <div key={index}>
-      <Card tool={tool} />
-      </div>
-    ))}
-      </div>
-  )
+    <>
+      <header className="max-w-2xl">
+        <h1 className="text-3xl font-medium tracking-tight">Developer tools</h1>
+        <p className="mt-3 text-ink-2">
+          Small utilities I built for everyday development work. They run in your browser.
+        </p>
+      </header>
+      <ul className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+        {tools.map((tool) => (
+          <li key={tool.slug} className="border-b border-r border-line">
+            <Link
+              href={`/tools/${tool.slug}`}
+              className="block h-full p-5 transition-colors duration-150 hover:bg-paper-2"
+            >
+              <span className="font-medium">{tool.name}</span>
+              <span className="mt-1 block text-sm text-ink-2">{tool.description}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
-
-export default page

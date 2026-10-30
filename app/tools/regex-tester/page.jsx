@@ -16,26 +16,26 @@ const RegexTester = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
-            <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">Regex Tester</h3>
+        <div className="flex flex-col items-center">
+            <div className="w-full max-w-md bg-paper-2 border border-line p-6 rounded-lg">
+                <h1 className="text-2xl font-medium tracking-tight mb-5">Regex Tester</h1>
                 <input 
                     type="text" 
                     value={regex} 
                     onChange={(e) => setRegex(e.target.value)} 
                     placeholder="Enter regex"
-                    className="w-full p-2 mb-4 bg-gray-700 border border-gray-600 rounded"
+                    className="w-full p-2 mb-4 bg-paper border border-line rounded"
                 />
                 <input 
                     type="text" 
                     value={testString} 
                     onChange={(e) => setTestString(e.target.value)} 
                     placeholder="Test string"
-                    className="w-full p-2 mb-4 bg-gray-700 border border-gray-600 rounded"
+                    className="w-full p-2 mb-4 bg-paper border border-line rounded"
                 />
                 <button 
                     onClick={testRegex} 
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded"
+                    className="w-full bg-ink hover:bg-ink/80 text-paper p-2 rounded"
                 >
                     Test
                 </button>

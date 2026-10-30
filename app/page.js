@@ -1,40 +1,36 @@
-// app/page.js
-import { personalData } from "../utils/data/personal-data";
-import AboutSection from "./components/homepage/about";
-import Blog from "./components/homepage/blog";
+import { educations } from "@/utils/data/educations";
+import { experiences } from "@/utils/data/experience";
+import { faqs } from "@/utils/data/faq";
+import { personalData } from "@/utils/data/personal-data";
+import { caseStudies, openSource } from "@/utils/data/projects-data";
+import { services } from "@/utils/data/services";
+import { skillGroups } from "@/utils/data/skills";
+import { homeJsonLd, serializeJsonLd } from "@/utils/structured-data";
 import ContactSection from "./components/homepage/contact";
 import Education from "./components/homepage/education";
 import Experience from "./components/homepage/experience";
+import Faq from "./components/homepage/faq";
 import HeroSection from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
+import Services from "./components/homepage/services";
 import Skills from "./components/homepage/skills";
 
-const getData = async () => {
-  const url = 'https://api.jsonsilo.com/843eeaf1-64b1-49a9-be43-59c545d34bca';
-  const headers = {
-    'X-SILO-KEY': process.env.NEXT_PUBLIC_X_SILO_KEY,
-    'Content-Type': 'application/json'
-  };
-  const res = await fetch(url, { headers, cache: 'no-store' });
-  const data = await res.json();
-  return data;
-}
+export const metadata = {
+  alternates: { canonical: "/" },
+};
 
-export default async function Home() {
-  const data = await getData();
-  console.log('🚀 ~ page.js:25 ~ Home ~ data:', data);
-
-
+export default function Home() {
   return (
     <>
-      <HeroSection personalData={data?.personal} skills={data?.skills} />
-      <AboutSection personalData={data?.personal} />
-      <Experience experiences={data?.experiences} />
-      <Skills skillsData={data?.skills} />
-      <Projects projectsData={data?.projects} />
-      <Education educations={data?.educations} />
-      {/* {blogs && <Blog blogs={blogs} />} */}
-      <ContactSection personalData={data?.personal} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(homeJsonLd()) }} />
+      <HeroSection personalData={personalData} />
+      <Services services={services} />
+      <Projects caseStudies={caseStudies} openSource={openSource} />
+      <Experience experiences={experiences} />
+      <Skills skillGroups={skillGroups} />
+      <Education educations={educations} />
+      <Faq faqs={faqs} />
+      <ContactSection personalData={personalData} />
     </>
   );
 }

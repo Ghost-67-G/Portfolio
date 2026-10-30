@@ -15,18 +15,18 @@ const ColorPaletteGenerator = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
-            <div className="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                <h3 className="text-xl font-semibold mb-4">Color Palette Generator</h3>
+        <div className="flex flex-col items-center">
+            <div className="w-full max-w-lg bg-paper-2 border border-line p-6 rounded-lg text-center">
+                <h1 className="text-2xl font-medium tracking-tight mb-5">Color Palette Generator</h1>
                 <input 
                     type="color" 
                     value={color} 
                     onChange={(e) => setColor(e.target.value)} 
-                    className="mb-4 w-full h-12 border-2 border-gray-600 rounded"
+                    className="mb-4 w-full h-12 border-2 border-line rounded"
                 />
                 <button 
                     onClick={generatePalette} 
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded"
+                    className="w-full bg-ink hover:bg-ink/80 text-paper p-2 rounded"
                 >
                     Generate Palette
                 </button>

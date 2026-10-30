@@ -1,108 +1,109 @@
-export const skillsData = [
-  'HTML',
-  'CSS',
-  'Javascript',
-  'Typescript',
-  'React',
-  'Next JS',
-  'Node JS',
-  'ViteJS',
-  'Tailwind',
-  'MongoDB',
-  'MySQL',
-  'PostgreSQL',
-  'Git',
-  'AWS',
-  'Bootstrap',
-  'Docker',
-  'Firebase',
-  'MaterialUI',
-  'Strapi',
-]
-
-// Choose your skills from below. Make sure it's in the same format and spelled correctly.
-// Couldn't find the required skills? Raise an issue on github at https://github.com/hhhrrrttt222111/developer-portfolio/issues/new
-
-
-// AVAILABLE SKILLS
-
-/* 
-  HTML
-  CSS
-  JS 
-  React
-  Next JS
-  Nuxt JS
-  Node JS
-  Vue
-  Angular
-  Docker
-  Photoshop
-  Illustrator
-  Svelte
-  GCP
-  Azure
-  Fastify
-  Haxe
-  Ionic
-  Markdown
-  Microsoft Office
-  Picsart
-  Sketch
-  Unity
-  WolframAlpha
-  Adobe XD
-  After Effects
-  Bootstrap
-  Bulma
-  CapacitorJs
-  Coffeescript
-  MemSQL
-  C
-  C++
-  C#
-  Python
-  Java
-  Julia
-  Matlab
-  Swift
-  Ruby
-  Kotlin
-  Go
-  PHP
-  Flutter
-  Dart
-  Typescript
-  Swift
-  Git
-  Figma
-  Canva
-  Ubuntu
-  Bootstrap
-  MongoDB
-  Tailwind
-  ViteJS
-  VuetifyJS
-  MySQL
-  PostgreSQL
-  AWS
-  Firebase
-  Blender
-  Premiere Pro
-  Adobe Audition
-  Deno
-  Django
-  Gimp
-  Graphql
-  Lightroom
-  MaterialUI
-  Nginx
-  Numpy
-  OpenCV
-  Pytorch
-  Selenium
-  Strapi
-  Tensorflow
-  Webex
-  Wordpress
-*/
+export const skillGroups = [
+  {
+    name: "Frontend & Mobile",
+    items: [
+      "React",
+      "Next.js",
+      "React Native (Expo)",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "Redux",
+      "Tailwind CSS",
+      "Vite",
+      "HTML5",
+      "CSS3",
+      "Performance optimization (code splitting, lazy loading)",
+    ],
+  },
+  {
+    name: "Backend",
+    items: [
+      "Node.js",
+      "Express.js",
+      "Python",
+      "REST API design",
+      "Microservices",
+      "WebSockets / Socket.io",
+      "JWT auth",
+      "RBAC",
+      "Stripe payments",
+      "Electron (desktop apps)",
+    ],
+  },
+  {
+    name: "AI / LLM",
+    items: [
+      "OpenAI & Anthropic APIs",
+      "Mastra AI agents & workflows",
+      "RAG",
+      "Vector databases (pgvector, Pinecone)",
+      "Tool / function calling",
+      "Prompt design",
+      "AI agent evals",
+      "MCP integrations",
+    ],
+  },
+  {
+    name: "Databases & Caching",
+    items: [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB / MongoDB Atlas",
+      "Prisma ORM",
+      "Supabase",
+      "Redis caching",
+      "Firebase (Auth, Firestore, Realtime DB, Storage, Cloud Messaging)",
+      "Schema design",
+      "Indexing",
+      "Data migrations",
+    ],
+  },
+  {
+    name: "Cloud & DevOps",
+    items: [
+      "Docker",
+      "Docker Compose",
+      "GitHub Actions CI/CD",
+      "Nginx",
+      "Azure (Static Web Apps, Front Door, Blob Storage)",
+      "GCP (Cloud SQL, Cloud Run, Load Balancing)",
+      "Firebase / Identity Platform",
+      "Dokploy",
+      "Oracle Cloud",
+      "Linux server administration (Ubuntu)",
+      "Expo Application Services (EAS)",
+      "Google Play publishing",
+    ],
+  },
+  {
+    name: "Automation & Integrations",
+    items: [
+      "n8n workflow automation",
+      "Google Places API",
+      "PageSpeed Insights API",
+      "Third-party API integrations",
+      "Lead-generation pipelines",
+    ],
+  },
+  {
+    name: "Architecture",
+    items: [
+      "Offline-first & LAN-based systems",
+      "Multi-tenant / multi-workspace SaaS",
+      "Billing & usage reconciliation",
+      "Legacy PHP → MERN migration",
+    ],
+  },
+  {
+    name: "Professional",
+    items: [
+      "Agile / Scrum",
+      "Remote async collaboration with US/UK teams",
+      "RFP scoping & estimation",
+      "Client presentations",
+      "Technical diagrams",
+      "Team leadership",
+      "AI-assisted development (Cursor, Claude, Copilot)",
+    ],
+  },
+];
