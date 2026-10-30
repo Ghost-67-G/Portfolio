@@ -1,3 +1,4 @@
+import { whatsappLink } from "@/utils/data/personal-data";
 import CopyButton from "../../helper/copy-button";
 import Section from "../section";
 import ContactForm from "./contact-form";
@@ -9,11 +10,7 @@ function ContactSection({ personalData }) {
   );
 
   const channels = [
-    {
-      label: "Phone / WhatsApp",
-      value: personalData.phone,
-      href: `https://wa.me/${personalData.phone.replace(/[^\d]/g, "")}`,
-    },
+    { label: "Phone / WhatsApp", value: personalData.phone, href: whatsappLink },
     { label: "LinkedIn", value: "linkedin.com/in/ayan-naseer", href: links.linkedIn },
     { label: "GitHub", value: "github.com/Ghost-67-G", href: links.github },
     { label: "Fiverr", value: "fiverr.com/ayannaseerghost", href: links.fiverr },

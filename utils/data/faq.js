@@ -41,6 +41,6 @@ export const faqs = [
   },
   {
     question: "How do I hire you?",
-    answer: `Email me at ${personalData.email} with a short description of what you're building. You can also hire me on Fiverr or through CodingStack, my studio for production SaaS builds.`,
+    answer: `Email me at ${personalData.email} or message me on WhatsApp at ${personalData.phone} with a short description of what you're building. You can also hire me on Fiverr or through CodingStack, my studio for production SaaS builds.`,
   },
 ];

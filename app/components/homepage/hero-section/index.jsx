@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { whatsappLink } from "@/utils/data/personal-data";
 import LocalTime from "../../helper/local-time";
 
 function HeroSection({ personalData }) {
@@ -28,17 +29,17 @@ function HeroSection({ personalData }) {
           <a href={`mailto:${personalData.email}`} className="btn btn-primary">
             Email me
           </a>
-          <Link href="#work" className="btn btn-secondary">
-            See selected work
-          </Link>
-          <a
-            href={personalData.resume}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link ml-1 text-sm text-ink-2 hover:text-ink"
-          >
-            Resume ↗
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+            WhatsApp
           </a>
+          <span className="ml-1 flex items-center gap-4 text-sm text-ink-2">
+            <Link href="#work" className="link hover:text-ink">
+              Selected work
+            </Link>
+            <a href={personalData.resume} target="_blank" rel="noopener noreferrer" className="link hover:text-ink">
+              Resume ↗
+            </a>
+          </span>
         </div>
       </div>
 

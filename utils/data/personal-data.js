@@ -6,7 +6,7 @@ export const personalData = {
   location: "Faisalabad, Punjab, Pakistan",
   timeZone: "Asia/Karachi",
   email: "ayannaseerg67@gmail.com",
-  phone: "+92 302 2850803",
+  phone: "+92 339 1850803",
   profile: "/profile.jpeg",
   resume: "https://canva.link/89sjbdcbpnci0s8",
   headline: "I build web, mobile and AI products for B2B and SaaS teams.",
@@ -32,3 +32,9 @@ export const personalData = {
     "https://leetcode.com/Ghost-67-G/",
   ],
 };
+
+// Opens a WhatsApp chat with the first message already typed, which also tells
+// you a chat came from the website rather than from an ad.
+export const whatsappLink = `https://wa.me/${personalData.phone.replace(/\D/g, "")}?text=${encodeURIComponent(
+  "Hi Ayan, I found you through your website and I'd like to talk about a project."
+)}`;
