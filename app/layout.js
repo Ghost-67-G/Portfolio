@@ -1,5 +1,6 @@
 import { GoogleTagManager } from "@next/third-parties/google";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import Script from "next/script";
 import { personalData, siteUrl } from "@/utils/data/personal-data";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
@@ -89,6 +90,14 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        {/* Umami analytics (cookie-free). data-domains limits tracking to the live
+            site, so local dev and Netlify preview deploys aren't counted. */}
+        <Script
+          src="https://analytics.open-domains.com/script.js"
+          data-website-id="b9c0f3c0-9ca5-4557-a41a-fe1bf2e89868"
+          data-domains="ayan.is-a.dev"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
